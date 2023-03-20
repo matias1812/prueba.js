@@ -1,0 +1,151 @@
+:root {
+  --bg-body: #fff;
+  --text-color: #222;
+  --border-color: #eee;
+  --price-color: #666;
+  --add-to-cart-button: rgb(0, 142, 245);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #222;
+    --text-color: #fff;
+    --border-color: #444;
+    --price-color: #ccc;
+    --add-to-cart-button: rgb(38, 163, 254);
+  }
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-body);
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .products {
+    grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+  }
+}
+
+@media (min-width: 800px) {
+  .products {
+    grid-template-columns: repeat(3, calc((100% - 40px) / 3));
+  }
+}
+
+@media (min-width: 1200px) {
+  .products {
+    grid-template-columns: repeat(4, calc((100% - 60px) / 4));
+  }
+}
+
+.products .product {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.product__image-container {
+  align-content: center;
+  aspect-ratio: 1;
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.product__image {
+  object-fit: contain;
+  max-width: 50%;
+}
+
+.product__content {
+  display: grid;
+  font-weight: 300;
+  grid-template-rows: 1fr auto auto;
+}
+
+.product__header {
+  padding: .5em;
+}
+
+.product__category {
+  font-weight: 300;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.product__title {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.product__price {
+  margin-top: 0;
+  text-align: center;
+  font-weight: 400;
+  color: var(--price-color);
+}
+
+.product__description {
+  margin-bottom: 0;
+}
+
+.product__options {
+  list-style: none;
+  padding: 0;
+}
+
+.product__option {
+  padding: .5em;
+}
+
+.product__footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+}
+
+.product__like {
+  font-family: 'products';
+}
+
+.product__like .icon-heart-empty {
+  color: gray;
+}
+
+.product__like .icon-heart {
+  color: tomato;
+}
+
+.product__add-to-cart {
+  background-color: var(--add-to-cart-button);
+  border-radius: 5px;
+  color: white;
+  margin: 0 .5em;
+  padding: .5em .75em;
+  text-decoration: none;
+}
